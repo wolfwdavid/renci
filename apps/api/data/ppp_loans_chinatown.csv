@@ -1,0 +1,31 @@
+LoanNumber,BorrowerName,BorrowerAddress,BorrowerCity,BorrowerState,BorrowerZip,NAICSCode,BusinessType,InitialApprovalAmount,CurrentApprovalAmount,ForgivenessAmount,ForgivenessDate,LoanStatus,JobsReported,Race,Ethnicity,Gender
+1001,Wong's Bakery,65 Mott St,New York,NY,10013,311811,Sole Proprietorship,18500,18500,18500,2021-03-15,Paid in Full,4,Asian,Not Hispanic or Latino,Male Owned
+1002,Golden Dragon Restaurant,28 Pell St,New York,NY,10013,722511,Corporation,125000,125000,125000,2021-06-20,Paid in Full,15,Asian,Not Hispanic or Latino,Male Owned
+1003,Mei Li Salon,87 Canal St,New York,NY,10013,812111,Sole Proprietorship,12400,12400,12400,2021-04-10,Paid in Full,3,Asian,Not Hispanic or Latino,Female Owned
+1004,Chinatown Grocery,75 East Broadway,New York,NY,10002,445110,Corporation,45000,45000,45000,2021-05-22,Paid in Full,8,Asian,Not Hispanic or Latino,Male Owned
+1005,Lucky Star Laundry,109 Mott St,New York,NY,10013,812310,Sole Proprietorship,8900,8900,8900,2021-02-28,Paid in Full,2,Asian,Not Hispanic or Latino,Female Owned
+1006,East Broadway Mall,88 East Broadway,New York,NY,10002,531120,Corporation,250000,250000,250000,2021-08-15,Paid in Full,25,Asian,Not Hispanic or Latino,Male Owned
+1007,Fong's Herbal Medicine,41 Bowery,New York,NY,10002,446110,Sole Proprietorship,15600,15600,15600,2021-03-30,Paid in Full,2,Asian,Not Hispanic or Latino,Male Owned
+1008,New Malaysia Restaurant,46 Bowery,New York,NY,10013,722511,Corporation,78000,78000,78000,2021-07-12,Paid in Full,12,Asian,Not Hispanic or Latino,Male Owned
+1009,Ming's Tailor Shop,52 Mott St,New York,NY,10013,811490,Sole Proprietorship,9200,9200,9200,2021-04-05,Paid in Full,1,Asian,Not Hispanic or Latino,Female Owned
+1010,Kam Hing Bakery,29 Bayard St,New York,NY,10013,311811,Corporation,22000,22000,22000,2021-05-18,Paid in Full,5,Asian,Not Hispanic or Latino,Male Owned
+1011,Wo Hop Restaurant,17 Mott St,New York,NY,10013,722511,Corporation,95000,95000,95000,2021-06-01,Paid in Full,18,Asian,Not Hispanic or Latino,Male Owned
+1012,Sun's Organic Tea,51 Canal St,New York,NY,10002,445299,Sole Proprietorship,11000,11000,11000,2021-03-20,Paid in Full,2,Asian,Not Hispanic or Latino,Female Owned
+1013,Eastern Bookstore,13 Elizabeth St,New York,NY,10013,451211,Sole Proprietorship,7500,7500,7500,2021-04-25,Paid in Full,1,Asian,Not Hispanic or Latino,Male Owned
+1014,Doyers St Barber,5 Doyers St,New York,NY,10013,812111,Sole Proprietorship,6800,6800,0,,Charged Off,1,Asian,Not Hispanic or Latino,Male Owned
+1015,Harmony Spa,14 Elizabeth St,New York,NY,10013,812199,LLC,35000,35000,35000,2021-05-30,Paid in Full,6,Asian,Not Hispanic or Latino,Female Owned
+1016,Peking Duck House,28 Mott St,New York,NY,10013,722511,Corporation,180000,180000,180000,2021-09-10,Paid in Full,22,Asian,Not Hispanic or Latino,Male Owned
+1017,Lin's Jewelry,23 Canal St,New York,NY,10002,448310,Sole Proprietorship,14200,14200,14200,2021-04-18,Paid in Full,2,Asian,Not Hispanic or Latino,Female Owned
+1018,Buddha Bodai,5 Mott St,New York,NY,10013,722511,Corporation,68000,68000,68000,2021-07-25,Paid in Full,10,Asian,Not Hispanic or Latino,Male Owned
+1019,Chinatown Ice Cream Factory,65 Bayard St,New York,NY,10013,311520,LLC,28000,28000,28000,2021-05-12,Paid in Full,4,Asian,Not Hispanic or Latino,Male Owned
+1020,Canal Hardware,265 Canal St,New York,NY,10013,444130,Corporation,42000,42000,42000,2021-06-08,Paid in Full,6,Unanswered,Unanswered,Unanswered
+1021,Hua Ji Pork Store,81 Mulberry St,New York,NY,10013,311611,Corporation,55000,55000,55000,2021-05-20,Paid in Full,8,Asian,Not Hispanic or Latino,Male Owned
+1022,Ten Ren Tea,75 Mott St,New York,NY,10013,445299,Corporation,32000,32000,32000,2021-04-15,Paid in Full,5,Asian,Not Hispanic or Latino,Male Owned
+1023,88 Palace,88 East Broadway,New York,NY,10002,722511,Corporation,145000,145000,145000,2021-08-20,Paid in Full,20,Asian,Not Hispanic or Latino,Male Owned
+1024,New York Mart,128 Mott St,New York,NY,10013,445110,Corporation,98000,98000,98000,2021-07-05,Paid in Full,14,Asian,Not Hispanic or Latino,Male Owned
+1025,Wing Fat Shopping,35 Pell St,New York,NY,10013,448140,Sole Proprietorship,16500,16500,16500,2021-03-28,Paid in Full,3,Asian,Not Hispanic or Latino,Female Owned
+1026,Nom Wah Tea Parlor,13 Doyers St,New York,NY,10013,722511,LLC,88000,88000,88000,2021-06-15,Paid in Full,14,Asian,Not Hispanic or Latino,Male Owned
+1027,Mott Street Florist,44 Mott St,New York,NY,10013,453110,Sole Proprietorship,8200,8200,8200,2021-04-02,Paid in Full,1,Asian,Not Hispanic or Latino,Female Owned
+1028,Good Fortune Bakery,180 Grand St,New York,NY,10013,311811,Corporation,19800,19800,19800,2021-05-25,Paid in Full,4,Asian,Not Hispanic or Latino,Male Owned
+1029,CJ Nail Salon,198 Canal St,New York,NY,10013,812111,Sole Proprietorship,10500,10500,10500,2021-03-10,Paid in Full,3,Asian,Not Hispanic or Latino,Female Owned
+1030,Excellent Pork Chop House,3 Doyers St,New York,NY,10013,722511,Corporation,62000,62000,62000,2021-07-30,Paid in Full,9,Asian,Not Hispanic or Latino,Male Owned

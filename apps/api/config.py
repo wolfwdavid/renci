@@ -7,8 +7,9 @@ class Settings(BaseSettings):
     twilio_auth_token: str = ""
     twilio_phone_number: str = ""
 
-    # Anthropic
-    anthropic_api_key: str = ""
+    # Google AI
+    google_api_key: str = ""
+    use_vertex_ai: bool = False
 
     # Google Cloud
     gcp_project_id: str = "renci-prod"
