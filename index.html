@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Renci 仁慈 — AI Agent for Chinatown Small Businesses</title>
+  <meta name="description" content="An AI-powered live agent helping Manhattan Chinatown's mom-and-pop shops build their digital presence." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #09090b; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+    .card { max-width: 600px; text-align: center; }
+    .logo { width: 80px; height: 80px; background: #dc2626; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; margin: 0 auto 1.5rem; }
+    h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    h1 span { color: #f87171; }
+    .tagline { color: #a1a1aa; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .tagline-zh { color: #71717a; font-size: 1rem; margin-bottom: 2rem; }
+    .links { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 2rem; }
+    .links a { padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+    .primary { background: #dc2626; color: #fff; }
+    .primary:hover { background: #ef4444; }
+    .secondary { background: #27272a; color: #fff; border: 1px solid #3f3f46; }
+    .secondary:hover { background: #3f3f46; }
+    .info { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 2rem; text-align: left; }
+    .info-item { background: #18181b; border: 1px solid #27272a; border-radius: 12px; padding: 1rem; }
+    .info-item .label { font-size: 0.7rem; color: #71717a; text-transform: uppercase; margin-bottom: 0.25rem; }
+    .info-item .value { font-size: 0.9rem; color: #e4e4e7; }
+    .footer { color: #52525b; font-size: 0.8rem; margin-top: 2rem; }
+    @media (max-width: 500px) { h1 { font-size: 1.8rem; } .info { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">R</div>
+    <h1>Renci <span>仁慈</span></h1>
+    <p class="tagline">AI Agent for Chinatown Small Businesses</p>
+    <p class="tagline-zh">华埠小商家的AI助手</p>
+
+    <div class="links">
+      <a href="https://renci-web-408375733910.us-central1.run.app" class="primary">Live Demo</a>
+      <a href="https://github.com/wolfwdavid/renci" class="secondary">GitHub Repo</a>
+      <a href="mailto:mkarurosun@gmail.com?subject=Hi" class="secondary">Email Renci</a>
+    </div>
+
+    <div class="info">
+      <div class="info-item">
+        <div class="label">Team</div>
+        <div class="value">Blue Fire</div>
+      </div>
+      <div class="info-item">
+        <div class="label">Lead</div>
+        <div class="value">David White Wolf</div>
+      </div>
+      <div class="info-item">
+        <div class="label">Stack</div>
+        <div class="value">Gemini 2.5 Flash + Google Cloud Run</div>
+      </div>
+      <div class="info-item">
+        <div class="label">Dataset</div>
+        <div class="value">SBA PPP Loans (Chinatown)</div>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="https://renci-api-408375733910.us-central1.run.app/health" class="secondary">API Health Check</a>
+    </div>
+
+    <p class="footer">NYC Build With AI Hackathon 2026 · Build for Everyone</p>
+  </div>
+</body>
+</html>
