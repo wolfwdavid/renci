@@ -7,6 +7,16 @@
 [![Live Demo](https://img.shields.io/badge/Live-renci--web-red?style=for-the-badge)](https://renci-web-408375733910.us-central1.run.app)
 [![API](https://img.shields.io/badge/API-renci--api-blue?style=for-the-badge)](https://renci-api-408375733910.us-central1.run.app/health)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Run-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://console.cloud.google.com/run?project=renci-491614)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/wolfwdavid/renci)
+
+## Links
+
+| Resource | URL |
+|----------|-----|
+| **Live Demo** | https://renci-web-408375733910.us-central1.run.app |
+| **API Health** | https://renci-api-408375733910.us-central1.run.app/health |
+| **GitHub Repo** | https://github.com/wolfwdavid/renci |
+| **Email the Agent** | mkarurosun@gmail.com |
 
 ---
 
