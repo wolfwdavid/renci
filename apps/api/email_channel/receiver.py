@@ -16,21 +16,29 @@ class IncomingEmail:
 
 
 def connect_imap() -> imaplib.IMAP4_SSL:
-    """Connect to Gmail IMAP."""
-    imap = imaplib.IMAP4_SSL("imap.gmail.com")
+    """Connect to Gmail IMAP with timeout."""
+    imap = imaplib.IMAP4_SSL("imap.gmail.com", timeout=10)
     imap.login(settings.renci_email, settings.renci_email_app_password)
     return imap
 
 
-def fetch_unread_emails() -> list[IncomingEmail]:
-    """Fetch all unread emails from the inbox."""
+def fetch_unread_emails(max_emails: int = 5) -> list[IncomingEmail]:
+    """Fetch recent unread emails from the inbox (limited to avoid overload)."""
     imap = connect_imap()
     imap.select("INBOX")
 
     _, message_numbers = imap.search(None, "UNSEEN")
     emails = []
 
-    for num in message_numbers[0].split():
+    # Only process the most recent unread emails
+    nums = message_numbers[0].split()
+    if not nums:
+        imap.close()
+        imap.logout()
+        return []
+    nums = nums[-max_emails:]  # Take only the latest N
+
+    for num in nums:
         _, msg_data = imap.fetch(num, "(RFC822)")
         raw = msg_data[0][1]
         msg = email.message_from_bytes(raw)
