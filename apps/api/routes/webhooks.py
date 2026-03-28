@@ -44,3 +44,24 @@ async def email_poll():
     from email_channel.poller import poll_emails_once
     count = await poll_emails_once()
     return {"processed": count}
+
+
+@router.get("/agent/status")
+async def agent_status():
+    """Get the live agent poller status."""
+    from email_channel.poller import _running
+    return {"active": _running}
+
+
+@router.post("/agent/toggle")
+async def agent_toggle():
+    """Toggle the live agent email poller on/off."""
+    import asyncio
+    from email_channel.poller import _running, start_email_poller, stop_email_poller
+
+    if _running:
+        stop_email_poller()
+        return {"active": False, "message": "Live agent stopped"}
+    else:
+        asyncio.create_task(start_email_poller(interval_seconds=15))
+        return {"active": True, "message": "Live agent started"}
