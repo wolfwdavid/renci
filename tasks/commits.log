@@ -5,3 +5,4 @@
 [2026-03-28] a38d47e — Migrate agent from Anthropic/Claude to Google ADK/Gemini
 [2026-03-28] 7f2d8fb — Redesign landing page for hackathon demo
 [2026-03-28] dd6f0bf — Add email channel as alternative to Twilio SMS
+[2026-03-28] 7895109 — Fix Cloud Run deployment: add web lock file, resilient email poller

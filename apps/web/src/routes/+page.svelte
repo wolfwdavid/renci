@@ -86,7 +86,7 @@
     <div class="max-w-6xl mx-auto relative">
       <div class="text-center mb-6">
         <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-red-600/10 text-red-400 border border-red-600/20 mb-6">
-          NYC Build With AI Hackathon — Follow the Money
+          NYC Build With AI Hackathon — Build for Everyone
         </span>
       </div>
 
@@ -276,7 +276,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-purple-600/10 text-purple-400 border border-purple-600/20 mb-4">
-          Follow the Money — SBA PPP Loan Data
+          Build for Everyone — SBA PPP Loan Data
         </span>
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Chinatown PPP Loans at a Glance</h2>
         <p class="text-zinc-400">Real data from the SBA Paycheck Protection Program for zip codes 10002 & 10013.</p>
@@ -401,7 +401,7 @@
         <span class="text-sm text-zinc-400">Renci 仁慈 — Helping Chinatown thrive online.</span>
       </div>
       <div class="text-sm text-zinc-600">
-        NYC Build With AI Hackathon 2026 &middot; Follow the Money
+        NYC Build With AI Hackathon 2026 &middot; Build for Everyone
       </div>
     </div>
   </footer>
