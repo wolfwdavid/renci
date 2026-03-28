@@ -2,12 +2,32 @@ import re
 
 
 def detect_language(text: str) -> str:
-    """Detect if text is Chinese or English based on CJK character presence."""
+    """Detect if text is Chinese or English.
+
+    Uses the language of the first substantive token — if the message
+    starts with Latin words, treat as English; if it starts with CJK, treat
+    as Chinese. This matches how bilingual speakers code-switch: the lead
+    language is the intended language.
+    """
+    text = text.strip()
+    if not text:
+        return "en"
+
+    # Check the first non-whitespace character
+    for char in text:
+        if char.isspace():
+            continue
+        if "\u4e00" <= char <= "\u9fff" or "\u3400" <= char <= "\u4dbf":
+            return "zh"
+        if char.isascii() and char.isalpha():
+            return "en"
+
+    # Fallback: count CJK vs English words
     cjk_pattern = re.compile(r"[\u4e00-\u9fff\u3400-\u4dbf]")
     cjk_chars = len(cjk_pattern.findall(text))
-    total_alpha = len(re.findall(r"[a-zA-Z]", text))
+    english_words = len(re.findall(r"[a-zA-Z]+", text))
 
-    if cjk_chars > total_alpha:
+    if cjk_chars > english_words:
         return "zh"
     return "en"
 
