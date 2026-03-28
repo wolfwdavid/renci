@@ -11,8 +11,12 @@ class Settings(BaseSettings):
     google_api_key: str = ""
     use_vertex_ai: bool = False
 
+    # Email Agent Channel
+    renci_email: str = ""
+    renci_email_app_password: str = ""
+
     # Google Cloud
-    gcp_project_id: str = "renci-prod"
+    gcp_project_id: str = "renci-491614"
     firestore_database: str = "(default)"
     gcs_bucket: str = "renci-assets"
 

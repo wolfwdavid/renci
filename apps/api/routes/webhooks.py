@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Request, Response
-from sms.twilio_handler import parse_incoming_sms
+from pydantic import BaseModel
+from sms.twilio_handler import parse_incoming_sms, IncomingSMS
 from sms.router import route_message
 
 router = APIRouter()
@@ -16,3 +17,30 @@ async def sms_webhook(request: Request):
     # Return TwiML response
     twiml = f'<?xml version="1.0" encoding="UTF-8"?><Response><Message>{response_text}</Message></Response>'
     return Response(content=twiml, media_type="application/xml")
+
+
+class EmailMessage(BaseModel):
+    from_address: str
+    body: str
+    subject: str = "Renci"
+
+
+@router.post("/webhooks/email")
+async def email_webhook(msg: EmailMessage):
+    """Direct email webhook — for testing or external email forwarding services."""
+    sms_msg = IncomingSMS(
+        from_number=msg.from_address,
+        body=msg.body,
+        media_urls=[],
+        num_media=0,
+    )
+    response_text = await route_message(sms_msg)
+    return {"response": response_text, "from": msg.from_address}
+
+
+@router.post("/webhooks/email/poll")
+async def email_poll():
+    """Manually trigger an email poll cycle."""
+    from email_channel.poller import poll_emails_once
+    count = await poll_emails_once()
+    return {"processed": count}
