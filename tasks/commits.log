@@ -2,3 +2,4 @@
 # Format: [timestamp] hash — message
 [2026-03-28] f8186ce — Phase 1 scaffolding: Renci SMS agent for Chinatown small businesses
 [2026-03-28] 5d4f4a5 — Add verification tests and fix language detector
+[2026-03-28] a38d47e — Migrate agent from Anthropic/Claude to Google ADK/Gemini
