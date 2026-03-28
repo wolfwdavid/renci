@@ -14,6 +14,7 @@
 | Resource | URL |
 |----------|-----|
 | **Live Demo** | https://renci-web-408375733910.us-central1.run.app |
+| **GitHub Pages** | https://wolfwdavid.github.io/renci/ |
 | **API Health** | https://renci-api-408375733910.us-central1.run.app/health |
 | **GitHub Repo** | https://github.com/wolfwdavid/renci |
 | **Email the Agent** | mkarurosun@gmail.com |
