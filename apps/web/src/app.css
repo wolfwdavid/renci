@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+:root {
+  --font-body: 'Inter', 'Noto Sans SC', 'Noto Sans TC', system-ui, sans-serif;
+  --color-primary: #D4382C;
+  --color-primary-dark: #B02E24;
+}
+
+body {
+  font-family: var(--font-body);
+}

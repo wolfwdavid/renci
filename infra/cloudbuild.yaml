@@ -1,0 +1,46 @@
+steps:
+  # Build API image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/renci/api:${SHORT_SHA}', '-f', 'apps/api/Dockerfile', 'apps/api']
+
+  # Build Web image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/renci/web:${SHORT_SHA}', '-f', 'apps/web/Dockerfile', 'apps/web']
+
+  # Push images
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/renci/api:${SHORT_SHA}']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/renci/web:${SHORT_SHA}']
+
+  # Deploy API to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'renci-api'
+      - '--image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/renci/api:${SHORT_SHA}'
+      - '--region=${_REGION}'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+
+  # Deploy Web to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'renci-web'
+      - '--image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/renci/web:${SHORT_SHA}'
+      - '--region=${_REGION}'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+
+substitutions:
+  _REGION: us-east1
+
+images:
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/renci/api:${SHORT_SHA}'
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/renci/web:${SHORT_SHA}'

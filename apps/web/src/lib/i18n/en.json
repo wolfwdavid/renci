@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Home",
+    "how_it_works": "How it works",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "title": "Your business online. Just text us.",
+    "subtitle": "Renci helps Chinatown's mom-and-pop shops build websites and manage social media — all through SMS.",
+    "cta": "Text us to get started"
+  },
+  "steps": {
+    "text_us": "Text us",
+    "text_us_desc": "Send a text to our number. We'll ask a few questions about your business.",
+    "get_website": "Get your website",
+    "get_website_desc": "Your free website goes live instantly. Share it with customers.",
+    "update": "Update anytime",
+    "update_desc": "Change hours, add photos, post to social media — all by texting."
+  },
+  "footer": {
+    "tagline": "Helping Chinatown thrive online."
+  }
+}
