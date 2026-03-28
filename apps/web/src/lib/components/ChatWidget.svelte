@@ -5,7 +5,42 @@
   let isOpen = $state(false);
   let chatContainer: HTMLElement;
 
+  // Owner contact info for SMS replies
+  let ownerPhone = $state('');
+  let ownerCarrier = $state('');
+  let contactCollected = $state(false);
+
   const API_URL = 'https://renci-api-408375733910.us-central1.run.app';
+
+  const CARRIER_GATEWAYS: Record<string, string> = {
+    'att': 'txt.att.net',
+    'tmobile': 'tmomail.net',
+    'verizon': 'vtext.com',
+    'sprint': 'messaging.sprintpcs.com',
+    'metro': 'mymetropcs.com',
+    'cricket': 'sms.cricketwireless.net',
+    'boost': 'sms.myboostmobile.com',
+    'visible': 'vtext.com',
+    'other': '',
+  };
+
+  function buildSmsEmail(): string {
+    if (!ownerPhone || !ownerCarrier) return 'demo@renci.app';
+    const digits = ownerPhone.replace(/\D/g, '');
+    const gateway = CARRIER_GATEWAYS[ownerCarrier];
+    if (!gateway) return ownerPhone;
+    return `${digits}@${gateway}`;
+  }
+
+  function submitContact() {
+    if (!ownerPhone.trim() || !ownerCarrier) return;
+    contactCollected = true;
+    const smsAddr = buildSmsEmail();
+    messages = [...messages, {
+      role: 'agent',
+      text: `Got it! I'll send replies to ${ownerPhone} via ${ownerCarrier.toUpperCase()}.\n\nNow type "Hi" to register your business, or ask me anything!\n\n现在输入 "Hi" 开始注册你的店！`
+    }];
+  }
 
   async function sendMessage() {
     if (!input.trim() || isLoading) return;
@@ -15,7 +50,6 @@
     messages = [...messages, { role: 'user', text: userMsg }];
     isLoading = true;
 
-    // Scroll to bottom
     setTimeout(() => {
       if (chatContainer) chatContainer.scrollTop = chatContainer.scrollHeight;
     }, 50);
@@ -25,7 +59,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          from_address: 'demo@renci.app',
+          from_address: buildSmsEmail(),
           body: userMsg,
           subject: 'Renci Chat',
         }),
@@ -53,7 +87,7 @@
   function toggleChat() {
     isOpen = !isOpen;
     if (isOpen && messages.length === 0) {
-      messages = [{ role: 'agent', text: "Hi! I'm Renci 仁慈. Type \"Hi\" to start registering your business, or ask me anything.\n\n你好！我是仁慈。输入\"Hi\"开始注册你的店，或者问我任何问题。" }];
+      messages = [{ role: 'agent', text: "Welcome! To get started, enter your phone number and carrier below so I can text you back.\n\n欢迎！请输入你的手机号码和运营商。" }];
     }
   }
 </script>
@@ -116,28 +150,64 @@
       {/if}
     </div>
 
-    <!-- Input -->
+    <!-- Input area -->
     <div class="px-3 py-3 border-t border-zinc-800 bg-zinc-900">
-      <div class="flex gap-2">
-        <input
-          type="text"
-          bind:value={input}
-          onkeydown={handleKeydown}
-          placeholder="Message Renci... 给仁慈发消息..."
-          disabled={isLoading}
-          class="flex-1 bg-zinc-800 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none focus:border-red-600 transition-colors disabled:opacity-50"
-        />
-        <button
-          onclick={sendMessage}
-          disabled={isLoading || !input.trim()}
-          class="px-3.5 py-2.5 bg-red-600 hover:bg-red-500 disabled:bg-zinc-700 rounded-xl transition-colors cursor-pointer disabled:cursor-not-allowed"
-          aria-label="Send message"
-        >
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-          </svg>
-        </button>
-      </div>
+      {#if !contactCollected}
+        <!-- Phone + Carrier form -->
+        <div class="space-y-2">
+          <input
+            type="tel"
+            bind:value={ownerPhone}
+            placeholder="Phone number 手机号码"
+            class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none focus:border-red-600 transition-colors"
+          />
+          <div class="flex gap-2">
+            <select
+              bind:value={ownerCarrier}
+              class="flex-1 bg-zinc-800 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-red-600 transition-colors appearance-none cursor-pointer"
+            >
+              <option value="" disabled selected>Carrier 运营商</option>
+              <option value="att">AT&T</option>
+              <option value="tmobile">T-Mobile</option>
+              <option value="verizon">Verizon</option>
+              <option value="sprint">Sprint</option>
+              <option value="metro">Metro PCS</option>
+              <option value="cricket">Cricket</option>
+              <option value="boost">Boost</option>
+              <option value="visible">Visible</option>
+            </select>
+            <button
+              onclick={submitContact}
+              disabled={!ownerPhone.trim() || !ownerCarrier}
+              class="px-4 py-2.5 bg-red-600 hover:bg-red-500 disabled:bg-zinc-700 rounded-xl text-sm font-medium transition-colors cursor-pointer disabled:cursor-not-allowed"
+            >
+              Start
+            </button>
+          </div>
+        </div>
+      {:else}
+        <!-- Chat input -->
+        <div class="flex gap-2">
+          <input
+            type="text"
+            bind:value={input}
+            onkeydown={handleKeydown}
+            placeholder="Message Renci... 给仁慈发消息..."
+            disabled={isLoading}
+            class="flex-1 bg-zinc-800 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none focus:border-red-600 transition-colors disabled:opacity-50"
+          />
+          <button
+            onclick={sendMessage}
+            disabled={isLoading || !input.trim()}
+            class="px-3.5 py-2.5 bg-red-600 hover:bg-red-500 disabled:bg-zinc-700 rounded-xl transition-colors cursor-pointer disabled:cursor-not-allowed"
+            aria-label="Send message"
+          >
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </button>
+        </div>
+      {/if}
     </div>
   </div>
 {/if}
