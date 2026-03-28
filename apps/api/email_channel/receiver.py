@@ -40,23 +40,33 @@ def fetch_unread_emails() -> list[IncomingEmail]:
 
         # Extract subject
         subject = ""
-        if msg["Subject"]:
-            decoded = decode_header(msg["Subject"])
-            subject = decoded[0][0]
-            if isinstance(subject, bytes):
-                subject = subject.decode(decoded[0][1] or "utf-8")
+        try:
+            if msg["Subject"]:
+                decoded = decode_header(msg["Subject"])
+                subject = decoded[0][0]
+                if isinstance(subject, bytes):
+                    subject = subject.decode(decoded[0][1] or "utf-8", errors="replace")
+        except Exception:
+            subject = ""
 
         # Extract body
         body = ""
-        if msg.is_multipart():
-            for part in msg.walk():
-                if part.get_content_type() == "text/plain":
-                    charset = part.get_content_charset() or "utf-8"
-                    body = part.get_payload(decode=True).decode(charset)
-                    break
-        else:
-            charset = msg.get_content_charset() or "utf-8"
-            body = msg.get_payload(decode=True).decode(charset)
+        try:
+            if msg.is_multipart():
+                for part in msg.walk():
+                    if part.get_content_type() == "text/plain":
+                        charset = part.get_content_charset() or "utf-8"
+                        payload = part.get_payload(decode=True)
+                        if payload:
+                            body = payload.decode(charset, errors="replace")
+                        break
+            else:
+                charset = msg.get_content_charset() or "utf-8"
+                payload = msg.get_payload(decode=True)
+                if payload:
+                    body = payload.decode(charset, errors="replace")
+        except Exception:
+            body = ""
 
         # Mark as read
         imap.store(num, "+FLAGS", "\\Seen")
