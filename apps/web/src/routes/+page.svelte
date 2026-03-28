@@ -65,7 +65,7 @@
   <nav class="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-white/5">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center font-bold text-sm">R</div>
+        <img src="/renci-logo.png" alt="Renci" class="w-8 h-8 rounded-lg object-cover" />
         <span class="text-lg font-semibold tracking-tight">Renci <span class="text-red-400 font-normal">仁慈</span></span>
       </div>
       <div class="hidden md:flex gap-8 text-sm text-zinc-400">
@@ -85,6 +85,7 @@
 
     <div class="max-w-6xl mx-auto relative">
       <div class="text-center mb-6">
+        <img src="/renci-logo.png" alt="Renci 仁慈" class="w-28 h-28 mx-auto mb-6 drop-shadow-2xl" />
         <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-red-600/10 text-red-400 border border-red-600/20 mb-6">
           NYC Build With AI Hackathon — Build for Everyone
         </span>
@@ -397,7 +398,7 @@
   <footer class="py-12 px-6 border-t border-zinc-800">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="flex items-center gap-2">
-        <div class="w-6 h-6 rounded bg-red-600 flex items-center justify-center font-bold text-xs">R</div>
+        <img src="/renci-logo.png" alt="Renci" class="w-6 h-6 rounded object-cover" />
         <span class="text-sm text-zinc-400">Renci 仁慈 — Helping Chinatown thrive online.</span>
       </div>
       <div class="text-sm text-zinc-600">
