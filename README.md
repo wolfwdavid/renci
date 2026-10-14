@@ -17,7 +17,7 @@
 | **GitHub Pages** | https://wolfwdavid.github.io/renci/ |
 | **API Health** | https://renci-api-408375733910.us-central1.run.app/health |
 | **GitHub Repo** | https://github.com/wolfwdavid/renci |
-| **Email the Agent** | mkarurosun@gmail.com |
+| **Email the Agent** | cdw8481@nyu.edu |
 
 ---
 
@@ -46,7 +46,7 @@ Manhattan's Chinatown is losing its small businesses. The ones that remain are i
 
 ## What Renci Does
 
-Renci is a **live AI agent** — not a chatbot. Business owners message `mkarurosun@gmail.com` and Renci takes action:
+Renci is a **live AI agent** — not a chatbot. Business owners message `cdw8481@nyu.edu` and Renci takes action:
 
 ```
 OWNER emails: "Hi"
@@ -106,7 +106,7 @@ RENCI: In zip 10013: 3 bakeries received PPP loans totaling
 
 ### Try It Now
 
-Email `mkarurosun@gmail.com` with the message **"Hi"** — the live agent will walk you through registration.
+Email `cdw8481@nyu.edu` with the message **"Hi"** — the live agent will walk you through registration.
 
 ---
 
